@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>ANVIO</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <img class="header__logo" src="./img/header/anvio-logo-horizontal-red@3x 2LOGO.svg" alt="" />
+        <!--Desktop navigation-->
+        <div class="descktop-menu">
+          <ul class="header__nav">
+            <li class="header__item header__item--with-arrow dropJs">
+              <a href="" class="nav__link">Развлечения</a>
+              <!--Dropdown Entertaiment-->
+              <ul class="header__dropdown header__dropdown--entertaiment dropdownJs">
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1015entertaiment_header_1.png" alt="">
+                </li>
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1016entertaiment_header_club.png" alt="">
+                </li>
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1017entertaiment_header_attractions.png" alt="">
+                </li>
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1018entertaiment_header_stands.png" alt="">
+                </li>
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1019entertaiment_header_pvpchaleng.png" alt="">
+                </li>
+                <li class="header__dropdown--entertaiment__item">
+                  <img class="header__dropdown--entertaiment__img"
+                    src="./img/header/entertaiment/Frame 1020entertaiment_header_ticket_park.png" alt="">
+                </li>
+              </ul>
+            </li>
+            <li class="header__item">
+              <a href="" class="nav__link">Эмоции</a>
+            </li>
+            <li class="header__item header__item--with-arrow dropJs">
+              <a href="" class="nav__link">мероприятия</a>
+              <!--Dropdown Events-->
+              <ul class="header__dropdown header__dropdown--events dropdown">
+                Some block menu
+              </ul>
+            </li>
+            <li class="header__item">
+              <a href="" class="nav__link">Oтзывы</a>
+            </li>
+          </ul>
+
+          <button class="btn btn--red btn--header">КУПИТЬ БИЛЕТ</button>
+
+          <ul class="header__menu">
+            <li class="header__item">
+              <a class="menu__link" href="+38 (067) 296-30-30">+38 (067) 296-30-30</a>
+            </li>
+            <li class="header__item header__item--with-arrow dropJs">
+              <span>КИЕВ</span>
+              <!--Dropdown Place-->
+              <ul class="header__dropdown header__dropdown--place dropdown">
+                Some list
+              </ul>
+            </li>
+            <li class="header__item">
+              <button class="btn">ВОЙТИ</button>
+            </li>
+            <li class="header__item header__item--with-arrow dropJs">
+              <span>UA</span>
+              <!--Dropdown Language-->
+              <ul class="header__dropdown hader__dropdown--lang dropdown">
+                Some list
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!--Mobile navigation-->
+        <div class="mobile__nav">
+          <img class="mobile__nav__point" src="./img/header/Subtractmobile_nav_point.svg" alt="map" />
+          <img class="mobile__nav__phone" src="./img/header/Vectormobile_nav_phone.svg" alt="call" />
+          <button aria-expanded="false" class="burger btn">
+            <span class="burger__item"></span>
+          </button>
+        </div>
+
+        <!--Mobile menu-->
+        <div class="mobile__menu">
+          <div class="mobile__selects">
+            <div class="mobile__select mobile__select--place">
+              <span>КИЕВ</span>
+              <ul class="dropdown dropdown--place"></ul>
+            </div>
+            <div class="mobile__select mobile__select--language">
+              <span>UA</span>
+              <ul class="dropdown dropdown--place"></ul>
+            </div>
+          </div>
+
+          <button class="btn btn--red btn--header">КУПИТЬ БИЛЕТ</button>
+          <button class="btn btn--transparent btn--header">
+            Заказать праздник
+          </button>
+
+          <ul class="mobile__list">
+            <li class="mobile__item mobile__item-dropJs">
+              <span href="" class="mobile__link mobile__link--with-arrow">Развлечения</span>
+              <ul class="mobile__dropdown dropdown">
+                <li class="mobile__dropdown__item">Арена</li>
+                <li class="mobile__dropdown__item">Клуб</li>
+                <li class="mobile__dropdown__item">Атракцион</li>
+                <li class="mobile__dropdown__item">Стенд</li>
+              </ul>
+            </li>
+            <li class="mobile__item">
+              <a href="" class="mobile__link">Эмоции</a>
+            </li>
+            <li class="mobile__item mobile__item-dropJs">
+              <span href="" class="mobile__link mobile__link--with-arrow">мероприятия</span>
+              <ul class="mobile__dropdown dropdown">
+                <li class="mobile__dropdown__item">ДЕТСКИе ДНи РОЖДЕНИя</li>
+                <li class="mobile__dropdown__item">ВЗРОСЛЫе ДНи РОЖДЕНИя</li>
+                <li class="mobile__dropdown__item">КОРПОРАТИВы</li>
+                <li class="mobile__dropdown__item">Нестандартное мроприятие</li>
+              </ul>
+            </li>
+            <li class="mobile__item">
+              <a href="" class="mobile__link">Oтзывы</a>
+            </li>
+          </ul>
+
+          <div class="mobile__contacts">
+            <a href="email:info@anviovr.com" class="menu__email">info@anviovr.com</a>
+            <a href="tel:+38 (067) 296-30-30" class="menu__phone">+38 (067) 296-30-30</a>
+            <ul class="social">
+              <img src="./img/social/telegram-svgrepo-com 1telegram.svg" alt="" class="social__item" />
+              <img src="./img/social/whatsapp-svgrepo-com 1whatsapp.svg" alt="" class="social__item" />
+              <img src="./img/social/fb logofacebook.svg" alt="" class="social__item" />
+              <img src="./img/social/tiktok-logo-logo-svgrepo-com 1tik-tok.svg" alt="" class="social__item" />
+              <img src="./img/social/youtube-svgrepo-com 1youtube.svg" alt="" class="social__item" />
+            </ul>
+          </div>
+          <button class="btn btn--sign">
+            <img src="./img/header/6391520041543238940 1user_icon.svg" alt="login" />
+            <span>Войти</span>
+          </button>
+        </div>
+        <!--Mobile menu--->
+
+
+        <!-----Location Menu--->
+        <div class="location">
+          <p class="location__adress">Киев, ул. Вадима Гетьмана, 6, ТРЦ Cosmo Multimall,Блок A, 2-ой этаж</p>
+          <p class="location__metro">
+            <img src="./img/header/VectorMETRO.svg" alt="">
+            Шулявська — 400м
+          </p>
+          <div class="location__work-hours">
+            <span>ВРЕМЯ РАБОТЫ</span>
+            <p>Ежедневно с 10:00 до 22:00</p>
+          </div>
+          <div class="location__map">
+            <iframe class="map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.535020159716!2d30.439171416017462!3d50.4497610794752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc24d030cf41%3A0xfbed7f422ec96831!2sCosmo%20Multimall!5e0!3m2!1sru!2scz!4v1660138572763!5m2!1sru!2scz"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="location__get">
+            <span>Как добраться</span>
+            <button class="btn btn--transparent btn--header">На метро</button>
+            <button class="btn btn--transparent btn--header">На автомобиле</button>
+            <button class="btn btn--transparent btn--header">Google Карты</button>
+          </div>
+        </div>
+        <!--Location Menu-->
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="preview">
+      <div class="preview__inner">
+
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <!--Popup-->
+  <div class="popup">
+    <div class="popup__content"></div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

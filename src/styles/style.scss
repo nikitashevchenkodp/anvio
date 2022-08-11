@@ -1,0 +1,49 @@
+@import "./variables.scss";
+@import "./common-styles.scss";
+@import "./header.scss";
+
+.preview {
+  width: 100%;
+  overflow: hidden;
+  margin-top: -71px;
+  width: 100%;
+
+  &__inner {
+    max-width: 1920px;
+    height: 3000px;
+    margin: 0 auto;
+    background: left top url("../img/preview/Group\ 889preview_big_symbol.svg")
+      no-repeat;
+  }
+}
+
+.popup {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  overflow: auto;
+
+  &__content {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    background-color: #fff;
+    padding: 30px;
+
+    border-radius: 20px;
+  }
+
+  &__active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+    transition: 0.5s;
+  }
+}
