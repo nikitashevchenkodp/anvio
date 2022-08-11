@@ -15,74 +15,92 @@
       <div class="header__inner">
         <img class="header__logo" src="./img/header/anvio-logo-horizontal-red@3x 2LOGO.svg" alt="" />
         <!--Desktop navigation-->
-        <div class="descktop-menu">
-          <ul class="header__nav">
-            <li class="header__item header__item--with-arrow dropJs">
-              <a href="" class="nav__link">Развлечения</a>
+        <div class="desktop-nav-container">
+          <ul class="desktop-nav desktop-nav--left">
+            <li class="desktop-nav__item dropdown-container">
+              <button class="btn btn--nav dropdown-trigger"><span>Развлечения</span></button>
               <!--Dropdown Entertaiment-->
-              <ul class="header__dropdown header__dropdown--entertaiment dropdownJs">
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+              <ul class="dropdown-body entertaiment">
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1015entertaiment_header_1.png" alt="">
                 </li>
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1016entertaiment_header_club.png" alt="">
                 </li>
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1017entertaiment_header_attractions.png" alt="">
                 </li>
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1018entertaiment_header_stands.png" alt="">
                 </li>
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1019entertaiment_header_pvpchaleng.png" alt="">
                 </li>
-                <li class="header__dropdown--entertaiment__item">
-                  <img class="header__dropdown--entertaiment__img"
+                <li class="dropdown-body__item">
+                  <img class="dropdown-body__item__img"
                     src="./img/header/entertaiment/Frame 1020entertaiment_header_ticket_park.png" alt="">
                 </li>
               </ul>
             </li>
-            <li class="header__item">
+            <li class="desktop-nav__item">
               <a href="" class="nav__link">Эмоции</a>
             </li>
-            <li class="header__item header__item--with-arrow dropJs">
-              <a href="" class="nav__link">мероприятия</a>
+            <li class="desktop-nav__item dropdown-container">
+              <button class="btn btn--nav dropdown-trigger">Мероприятия</button>
               <!--Dropdown Events-->
-              <ul class="header__dropdown header__dropdown--events dropdown">
-                Some block menu
+              <ul class="dropdown-body events">
+                <li class="dropdown-body__item">
+                  <img src="./img/header/20580891061586787981 1ballons.svg" alt="">
+                  <p>ДЕТСКИе ДНи РОЖДЕНИя</p>
+                </li>
+                <li class="dropdown-body__item">
+                  <img src="./img/header/Unionchampagne.svg" alt="">
+                  <p>ВЗРОСЛЫе ДНи РОЖДЕНИя</p>
+                </li>
+                <li class="dropdown-body__item">
+                  <img src="./img/header/Unionfun.svg" alt="">
+                  <p>КОРПОРАТИВы</p>
+                </li>
+                <li class="dropdown-body__item">
+                  <img src="./img/header/Unionextraordinary_events.svg" alt="">
+                  <p>Нестандартное мроприятие</p>
+                </li>
               </ul>
             </li>
-            <li class="header__item">
+            <li class="desktop-nav__item">
               <a href="" class="nav__link">Oтзывы</a>
             </li>
           </ul>
 
-          <button class="btn btn--red btn--header">КУПИТЬ БИЛЕТ</button>
+          <button class="btn btn--red btn--radius">КУПИТЬ БИЛЕТ</button>
 
-          <ul class="header__menu">
-            <li class="header__item">
+          <ul class="desktop-nav desktop-nav--right">
+            <li class="desktop-nav__item">
               <a class="menu__link" href="+38 (067) 296-30-30">+38 (067) 296-30-30</a>
             </li>
-            <li class="header__item header__item--with-arrow dropJs">
-              <span>КИЕВ</span>
+            <li class="desktop-nav__item dropdown-container">
+              <button class="btn btn--nav dropdown-trigger">КИЕВ</button>
               <!--Dropdown Place-->
-              <ul class="header__dropdown header__dropdown--place dropdown">
-                Some list
+              <ul class="dropdown-body place">
+                <li class="dropdown-body__item">Днепр</li>
+                <li class="dropdown-body__item">Львов</li>
+                <li class="dropdown-body__item">Одесса</li>
               </ul>
             </li>
-            <li class="header__item">
+            <li class="desktop-nav__item">
               <button class="btn">ВОЙТИ</button>
             </li>
-            <li class="header__item header__item--with-arrow dropJs">
-              <span>UA</span>
+            <li class="desktop-nav__item dropdown-container">
+              <button class="btn btn--nav dropdown-trigger">UA</button>
               <!--Dropdown Language-->
-              <ul class="header__dropdown hader__dropdown--lang dropdown">
-                Some list
+              <ul class="dropdown-body lang">
+                <li class="dropdown-body__item">русский</li>
+                <li class="dropdown-body__item">english</li>
               </ul>
             </li>
           </ul>
@@ -100,47 +118,70 @@
         <!--Mobile menu-->
         <div class="mobile__menu">
           <div class="mobile__selects">
-            <div class="mobile__select mobile__select--place">
-              <span>КИЕВ</span>
-              <ul class="dropdown dropdown--place"></ul>
+            <div class="mobile-dropdown-container select">
+              <button class="btn btn--nav mobile-dropdown-trigger">КИЕВ</button>
+              <ul class="mobile-dropdown-body place--mobile">
+                <li class="mobile-dropdown-body__item">русский</li>
+                <li class="mobile-dropdown-body__item">english</li>
+              </ul>
             </div>
-            <div class="mobile__select mobile__select--language">
-              <span>UA</span>
-              <ul class="dropdown dropdown--place"></ul>
+            <div class="mobile-dropdown-container select">
+              <button class="btn btn--nav mobile-dropdown-trigger">UA</button>
+              <ul class="mobile-dropdown-body lang--mobile">
+                <li class="mobile-dropdown--lang-item">русский</li>
+                <li class="mobile-dropdown--lang-item">english</li>
+              </ul>
             </div>
           </div>
 
-          <button class="btn btn--red btn--header">КУПИТЬ БИЛЕТ</button>
-          <button class="btn btn--transparent btn--header">
+          <button class="btn btn--red btn--radius">КУПИТЬ БИЛЕТ</button>
+          <button class="btn btn--transparent btn--radius">
             Заказать праздник
           </button>
 
           <ul class="mobile__list">
-            <li class="mobile__item mobile__item-dropJs">
-              <span href="" class="mobile__link mobile__link--with-arrow">Развлечения</span>
-              <ul class="mobile__dropdown dropdown">
-                <li class="mobile__dropdown__item">Арена</li>
-                <li class="mobile__dropdown__item">Клуб</li>
-                <li class="mobile__dropdown__item">Атракцион</li>
-                <li class="mobile__dropdown__item">Стенд</li>
+            <li class="mobile__item mobile-dropdown-container">
+              <button class="btn btn--nav mobile-dropdown-trigger"><span>Развлечения</span></button>
+              <ul class="mobile-dropdown-body entertaiment--mobile">
+                <li class="mobile-dropdown-body__item"><a href="">Арена</a></li>
+                <li class="mobile-dropdown-body__item"><a href="">Клуб</a></li>
+                <li class="mobile-dropdown-body__item"><a href="">Атракцион</a></li>
+                <li class="mobile-dropdown-body__item"><a href="">Стенд</a></li>
+                <li class="mobile-dropdown-body__item"><a href="">PvP-соревнования</a></li>
+                <li class="mobile-dropdown-body__item"><a href="">Билет в парк</a></li>
+              </ul>
+            </li>
+            <li class="mobile__item mobile-dropdown-container">
+              <button class="btn btn--nav mobile-dropdown-trigger"><span>Праздники</span></button>
+              <ul class="mobile-dropdown-body events--mobile">
+                <li class="mobile-dropdown-body__item">
+                  <img src="./img/header/20580891061586787981 1ballons.svg" alt="">
+                  <p>ДЕТСКИе ДНи РОЖДЕНИя</p>
+                </li>
+                <li class="mobile-dropdown-body__item">
+                  <img src="./img/header/Unionchampagne.svg" alt="">
+                  <p>ВЗРОСЛЫе ДНи РОЖДЕНИя</p>
+                </li>
+                <li class="mobile-dropdown-body__item">
+                  <img src="./img/header/Unionfun.svg" alt="">
+                  <p>КОРПОРАТИВы</p>
+                </li>
+                <li class="mobile-dropdown-body__item">
+                  <img src="./img/header/Unionextraordinary_events.svg" alt="">
+                  <p>Нестандартное мроприятие</p>
+                </li>
               </ul>
             </li>
             <li class="mobile__item">
               <a href="" class="mobile__link">Эмоции</a>
             </li>
-            <li class="mobile__item mobile__item-dropJs">
-              <span href="" class="mobile__link mobile__link--with-arrow">мероприятия</span>
-              <ul class="mobile__dropdown dropdown">
-                <li class="mobile__dropdown__item">ДЕТСКИе ДНи РОЖДЕНИя</li>
-                <li class="mobile__dropdown__item">ВЗРОСЛЫе ДНи РОЖДЕНИя</li>
-                <li class="mobile__dropdown__item">КОРПОРАТИВы</li>
-                <li class="mobile__dropdown__item">Нестандартное мроприятие</li>
-              </ul>
-            </li>
             <li class="mobile__item">
               <a href="" class="mobile__link">Oтзывы</a>
             </li>
           </ul>
+          <!-- <div class="for_dropdown">
+            sdf
+          </div> -->
 
           <div class="mobile__contacts">
             <a href="email:info@anviovr.com" class="menu__email">info@anviovr.com</a>
@@ -193,7 +234,129 @@
   <main>
     <section class="preview">
       <div class="preview__inner">
+        <div class="preview__info">
+          <h1 class="preview__info__title">VR-клуб «Anvio»</h1>
+          <p class="preview__info__description">парк цифровых развлечений для всей семьи</p>
+          <div class="preview__benefits__container">
+            <ul class="preview__benefits">
+              <li class="preview__benefits__item">
+                <img src="./img/preview/Group 916area.svg" alt="">
+                <p>Площадь парка 2100 м²</p>
+              </li>
+              <li class="preview__benefits__item">
+                <img src="./img/preview/Group 915team.svg" alt="">
+                <p>Командные игры</p>
+              </li>
+              <li class="preview__benefits__item">
+                <img src="./img/preview/15895249711645672741 1freedom.svg" alt="">
+                <p>Свобода передвижений</p>
+              </li>
+            </ul>
+            <img class="preview__benefits__img" src="./img/preview/Frame 1068child_with_dino.png" alt="">
+          </div>
 
+          <div class="slider">
+            <div class="slider__wrapper">
+              <div class="slider__container">
+                <div class="slide">
+                  <p class="slide__amount">скидка 50%</p>
+                  <p class="slide__text">на второй сеанс</p>
+                  <button class="btn btn--transparent btn--radius btn--white">получить скидку</button>
+                  <img class="slide__img" src="./img/preview_slider/Groupgear.svg" alt="">
+                </div>
+                <div class="slide">
+                  <p class="slide__amount">скидка 50%</p>
+                  <p class="slide__text">на второй сеанс</p>
+                  <button class="btn btn--transparent btn--radius btn--white">получить скидку</button>
+                  <img class="slide__img" src="./img/preview_slider/Groupgear.svg" alt="">
+                </div>
+                <div class="slide">
+                  <p class="slide__amount">скидка 50%</p>
+                  <p class="slide__text">на второй сеанс</p>
+                  <button class="btn btn--transparent btn--radius btn--white">получить скидку</button>
+                  <img class="slide__img" src="./img/preview_slider/Groupgear.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="slider__controll slider__controll--prev"></div>
+            <div class="slider__controll slider__controll--next"></div>
+            <div class="slider__dots">
+              <div class="slider__dot"></div>
+              <div class="slider__dot slider__dot--active"></div>
+              <div class="slider__dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview__video">
+          <img class="preview__video__background" src="./img/preview/download (1) 2preview_people.png" alt="">
+          <div class="circle">
+            <div class="circle--less">
+              <img class="circle__play" src="./img/preview/Group 886play.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preview__location">
+        <div>
+          <img class="preview__location__img" src="./img/preview/Mask grouppreview_cosmo.png" alt="">
+          <p class="preview__location__place">В центре Киева</p>
+          <p class="preview__location__metro"><img src="./img/header/VectorMETRO.svg" alt="">Шулявська — 400м</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="benefits__inner">
+        <div class="benefits__info">
+          <h2 class="benefits__title">Причины, по которым вы будете в восторге</h2>
+          <ul class="benefits__list">
+            <li class="benefits__list__item">
+              <img src="./img/benefits/72490334516348799414498 1gamepad.svg" alt="">
+              <div class="benefits__list__item__info">
+                <h4>Мы разрабатываем игры!</h4>
+                <p>Игры создаю наши гейм дизайнеры, и нигде, кроме ANVIO, в них не сыграть. Поучаствуй в спецоперации по
+                  спасению города.
+                  Зомби и боссы ждут вас! (Игра City Z)</p>
+              </div>
+            </li>
+            <li class="benefits__list__item">
+              <img src="./img/benefits/Group 916area.svg" alt="">
+              <div class="benefits__list__item__info">
+                <h4>100 м² локация свободного перемещения</h4>
+                <p>Полное погружение в виртуальную реальность со свободой перемещения, через пару минут вы уже
+                  забываете,
+                  что вы в игре и
+                  погружаетесь в экшн.</p>
+              </div>
+            </li>
+            <li class="benefits__list__item">
+              <img src="./img/benefits/14692592671642743874 1people.svg" alt="">
+              <div class="benefits__list__item__info">
+                <h4>Cвободное перемещение по игровой зоне без проводов</h4>
+                <p>Не стоите на месте, а по-настоящему движетесь, как участник кино, стреляете в монстров и с криками
+                  убегаете от них.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <img class="chema" src="./img/benefits/Frame 1135chema111.svg" alt="">
+        <img class="chema__mob" src="./img/benefits/Frame 1135little_chema.svg" alt="">
+      </div>
+    </section>
+
+    <section class="block-with-logo">
+      <div class="block-with-logo__container">
+        <div class="block-with-logo__inner">
+          <img src="" alt="">
+          <div class="block-with-logo__info">
+            <div class="block-with-logo__numbers"></div>
+            <div class="block-with-logo__text">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

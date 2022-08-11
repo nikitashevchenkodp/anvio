@@ -9,6 +9,7 @@ const mobileMenu = document.querySelector('.mobile__menu')
 const locationMenu = document.querySelector('.location');
 
 burgerBtn.addEventListener('click', () => {
+
     popupContent.innerHTML = '';
     popup.classList.toggle('popup__active')
     popupContent.appendChild(mobileMenu)
@@ -17,8 +18,8 @@ burgerBtn.addEventListener('click', () => {
 
 pointBtn.addEventListener('click', () => {
     popupContent.innerHTML = '';
-    popup.classList.toggle('popup__active')
-    popupContent.appendChild(locationMenu)
+    popup.classList.toggle('popup__active');
+    popupContent.appendChild(locationMenu);
     locationMenu.style.display = 'flex';
 })
 
@@ -30,10 +31,10 @@ pointBtn.addEventListener('click', () => {
 //Custom dropdown
 
 function dropdown(parentNode, dropBodySelector, activeClass) {
-    const dropBody = parentNode.querySelector(dropBodySelector)
-
+    const dropBody = parentNode.querySelector(dropBodySelector);
     parentNode.addEventListener('click', () => {
-        dropBody.classList.toggle(activeClass)
+        dropBody.classList.toggle(activeClass);
+        parentNode.querySelector('span').style.color = window.getComputedStyle(parentNode.querySelector('span')).color == "rgb(255, 0, 0)" ? "black" : "rgb(255, 0, 0)";
     })
 }
 
@@ -53,9 +54,45 @@ function dropdown(parentNode, dropBodySelector, activeClass) {
 
 //Mobile dropdown
 
-const mobileDropdownContainer = document.querySelectorAll('.mobile__item-dropJs');
-
-mobileDropdownContainer.forEach((item) => {
-    console.log(item);
-    dropdown(item, '.mobile__dropdown', 'mobile__dropdown--open')
+const dropdownDesktop = (parentNode, triggerSelector, bodySelector, activeClass) => {
+    const trigger = parentNode.querySelector(triggerSelector);
+    const body = parentNode.querySelector(bodySelector);
+    trigger.addEventListener('click', () => {
+        trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
+        body.classList.toggle(activeClass);
+    })
+}
+//Desktop dropdowns
+const dropdownList = document.querySelectorAll('.dropdown-container');
+dropdownList.forEach((item) => {
+    dropdownDesktop(item, '.dropdown-trigger', '.dropdown-body', 'dropdown-body--open');
 });
+
+//Mobile dropdowns
+const mobileDropdownList = document.querySelectorAll('.mobile-dropdown-container');
+mobileDropdownList.forEach((item) => {
+    dropdownDesktop(item, '.mobile-dropdown-trigger', '.mobile-dropdown-body', 'mobile-dropdown-body--open');
+});
+
+
+//Selects
+// const selectsMobile = document.querySelectorAll('.select');
+
+// const selectsDrop = (parentNode, triggerSelector, bodySelector, activeClass, placeSelector) => {
+//     const trigger = parentNode.querySelector(triggerSelector);
+//     const body = parentNode.querySelector(bodySelector);
+//     const place = document.querySelector(placeSelector)
+//     console.log(trigger);
+//     console.log(body);
+//     console.log(place);
+//     trigger.addEventListener('click', () => {
+//         trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
+//         body.classList.add(activeClass);
+//         place.appendChild(body.cloneNode(true))
+//         console.log('i work')
+//     })
+// }
+
+// selectsMobile.forEach((item) => {
+//     selectsDrop(item, '.mobile-dropdown-trigger', '.mobile-dropdown-body', 'mobile-dropdown-body--open', '.for_dropdown');
+// });

@@ -1,12 +1,14 @@
 @import "./variables.scss";
 
+//Header
+///////////////////////////////////////
 .header {
   padding: 15px 0;
   background: rgba(255, 255, 255, 0.9);
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   backdrop-filter: blur(5px);
 
   &__logo {
@@ -27,13 +29,28 @@
     }
   }
 
-  &__nav {
+  a {
+    text-transform: uppercase;
+  }
+}
+//Desktop
+/////////////////////////////////////////////
+.desktop-nav {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+
+  &-container {
+    flex-grow: 7;
     display: flex;
-    list-style: none;
-    gap: 26px;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: 1420px) {
+      display: none;
+    }
   }
 
-  &__menu {
+  &--right {
     display: flex;
     list-style: none;
     gap: 26px;
@@ -64,39 +81,82 @@
       top: 45%;
     }
   }
-}
-
-.descktop-menu {
-  flex-grow: 7;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media screen and (max-width: 1420px) {
-    display: none;
+  .dropdown-body {
+    box-shadow: 4px 4px 63px 23px rgba(34, 60, 80, 0.22);
+    padding: 30px;
+    background-color: #fff;
   }
 }
 
-.nav {
-  &__link {
+// Different dropdowns style////////////////
+.entertaiment {
+  display: flex;
+  width: 736px;
+  flex-wrap: wrap;
+  gap: 5px;
+  border-radius: 0px 30px 30px 30px;
+  &--mobile {
+    & > * {
+      font-weight: 600;
+    }
+  }
+
+  img {
+    width: 222px;
+    height: 100px;
+  }
+}
+
+.events {
+  // display: flex;
+  width: 407px;
+  border-radius: 0px 30px 30px 30px;
+  &--mobile {
+    & > * {
+      display: flex;
+      padding: 10px 0;
+      max-width: 100%;
+      p {
+        max-width: 157px;
+        text-align: left;
+        margin-left: 10px;
+      }
+    }
+  }
+  .dropdown-body__item {
+    display: flex;
+    padding: 15px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    p {
+      margin-left: 20px;
+    }
+  }
+}
+.lang {
+  width: 147px;
+  border-radius: 30px 0px 30px 30px;
+  right: 0;
+  & > * {
     text-transform: uppercase;
   }
+  &--mobile {
+    display: flex;
+  }
 }
 
-.dropdown {
-  display: none;
-}
-
-.btn--header {
-  border-radius: 30px;
-  padding: 10px 30px;
-}
-
+//Burger
+///////////////////////////////
 .burger {
   width: 20px;
   height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  // &[aria-expanded="false"] {
+  //   width: 100px;
+  //   height: 100px;
+  // }
 
   &__item {
     display: inline-block;
@@ -125,6 +185,9 @@
   }
 }
 
+//Mobile
+////////////////////////////////////////
+
 .mobile {
   &__nav {
     display: none;
@@ -137,6 +200,7 @@
       display: flex;
     }
   }
+
   &__menu {
     display: none;
     flex-direction: column;
@@ -145,20 +209,14 @@
       margin-bottom: 10px;
       font-size: 14px;
     }
+    .btn--radius {
+      padding: 11px 53px;
+    }
   }
   &__selects {
     display: flex;
     justify-content: space-between;
-    padding-right: 27px;
     margin-bottom: 20px;
-  }
-
-  &__dropdown {
-    display: flex;
-    flex-direction: column;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.5s;
   }
 
   &__select {
@@ -191,6 +249,14 @@
     padding: 20px 0;
     text-align: center;
     text-transform: uppercase;
+    img {
+    }
+    span {
+      transition: 0.5s;
+    }
+    p {
+      text-transform: uppercase;
+    }
     &:first-child {
       border-top: 1px solid #eeeeee;
     }

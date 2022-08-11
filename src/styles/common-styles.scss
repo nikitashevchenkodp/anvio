@@ -24,9 +24,23 @@ ul {
 img {
   max-width: 100%;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $main-font-family;
+}
 
 .container {
   max-width: 1860px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+main {
+  max-width: 1920px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -40,6 +54,8 @@ img {
   line-height: 21px;
   font-weight: 600;
   background-color: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
   &--red {
     background-color: $main-color;
     color: white;
@@ -47,5 +63,17 @@ img {
   &--transparent {
     color: black;
     border: 2px solid $main-color;
+  }
+  &--nav {
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  &--radius {
+    border-radius: 30px;
+    padding: 10px 30px;
+  }
+  &--white {
+    border-color: white;
+    color: white;
   }
 }
