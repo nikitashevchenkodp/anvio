@@ -53,13 +53,12 @@ function dropdown(parentNode, dropBodySelector, activeClass) {
 // }
 
 //Mobile dropdown
-
 const dropdownDesktop = (parentNode, triggerSelector, bodySelector, activeClass) => {
     const trigger = parentNode.querySelector(triggerSelector);
     const body = parentNode.querySelector(bodySelector);
-    trigger.addEventListener('click', () => {
-        trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
+    trigger.addEventListener('click', function () {
         body.classList.toggle(activeClass);
+        trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
     })
 }
 //Desktop dropdowns
@@ -67,32 +66,63 @@ const dropdownList = document.querySelectorAll('.dropdown-container');
 dropdownList.forEach((item) => {
     dropdownDesktop(item, '.dropdown-trigger', '.dropdown-body', 'dropdown-body--open');
 });
-
 //Mobile dropdowns
 const mobileDropdownList = document.querySelectorAll('.mobile-dropdown-container');
 mobileDropdownList.forEach((item) => {
     dropdownDesktop(item, '.mobile-dropdown-trigger', '.mobile-dropdown-body', 'mobile-dropdown-body--open');
 });
 
+//Slider
 
-//Selects
-// const selectsMobile = document.querySelectorAll('.select');
+function slider(parentSelector, sliderSelector, tapeSelector, prevSelector, nextSelector, dotsSelector, slideSelector) {
+    const parent = document.querySelector(parentSelector);
+    const sliderContainer = parent.querySelector(sliderSelector);
+    const allSlides = parent.querySelector(tapeSelector);
+    const prevControl = parent.querySelector(prevSelector);
+    const nextControl = parent.querySelector(nextSelector);
+    const slides = parent.querySelectorAll(slideSelector);
+    const dots = parent.querySelectorAll(dotsSelector);
+    const slidesQuantity = slides.length;
 
-// const selectsDrop = (parentNode, triggerSelector, bodySelector, activeClass, placeSelector) => {
-//     const trigger = parentNode.querySelector(triggerSelector);
-//     const body = parentNode.querySelector(bodySelector);
-//     const place = document.querySelector(placeSelector)
-//     console.log(trigger);
-//     console.log(body);
-//     console.log(place);
-//     trigger.addEventListener('click', () => {
-//         trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
-//         body.classList.add(activeClass);
-//         place.appendChild(body.cloneNode(true))
-//         console.log('i work')
-//     })
-// }
+    let slideIndex = 1;
+    let offset = 0;
+    let step = +window.getComputedStyle(sliderContainer).width.replace(/\D/g, "");
+    allSlides.style.width = (100 * slidesQuantity) + '%';
+    allSlides.style.transition = '0.7s';
 
-// selectsMobile.forEach((item) => {
-//     selectsDrop(item, '.mobile-dropdown-trigger', '.mobile-dropdown-body', 'mobile-dropdown-body--open', '.for_dropdown');
-// });
+    activeDots(slideIndex)
+
+    prevControl.addEventListener('click', () => {
+        if (offset === 0) {
+            offset = -step * (slidesQuantity - 1)
+            slideIndex = slides.length;
+        } else {
+            offset += step
+            slideIndex -= 1
+        }
+        allSlides.style.transform = `translateX(${offset}px)`;
+        activeDots(slideIndex)
+
+
+    })
+    nextControl.addEventListener('click', () => {
+        if (offset === (-step * (slidesQuantity - 1))) {
+            offset = 0
+            slideIndex = 1
+        } else {
+            offset -= step
+            slideIndex += 1
+        }
+        allSlides.style.transform = `translateX(${offset}px)`
+        activeDots(slideIndex)
+    })
+
+    function activeDots(index) {
+        dots.forEach(dot => dot.classList.remove('slider__dot--active'));
+        dots.forEach((dot, i) => {
+            index === (i + 1) ? dot.classList.add('slider__dot--active') : console.log('no')
+        })
+    }
+}
+
+slider('.slider', '.slider__wrapper', '.slider__container', '.slider__controll--prev', '.slider__controll--next', '.slider__dot', '.slide')

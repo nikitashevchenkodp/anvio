@@ -62,6 +62,11 @@ function js() {
         .pipe(gulpIf(isSync, browsersync.stream()))
 }
 
+function fonts() {
+    return gulp.src('./src/fonts/**/*')
+        .pipe(gulp.dest('./build/fonts'))
+}
+
 function watch() {
     if (isSync) {
         browsersync.init({
@@ -79,7 +84,7 @@ function watch() {
 
 
 const build = gulp.series(clear,
-    gulp.parallel(styles, img, html, js))
+    gulp.parallel(styles, img, fonts, html, js))
 
 gulp.task('build', build);
 gulp.task('watch', gulp.series(build, watch))
