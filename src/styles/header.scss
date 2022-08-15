@@ -145,6 +145,13 @@
   }
 }
 
+.place {
+  &--mobile {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 //Burger
 ///////////////////////////////
 .burger {
@@ -153,10 +160,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // &[aria-expanded="false"] {
-  //   width: 100px;
-  //   height: 100px;
-  // }
+  transition: 0.3s;
 
   &__item {
     display: inline-block;
@@ -167,6 +171,7 @@
     border-radius: 2px;
     &::before,
     &::after {
+      transition: 0.3s;
       content: "";
       width: 100%;
       height: 100%;
@@ -199,24 +204,92 @@
     @media screen and (max-width: 1420px) {
       display: flex;
     }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      &::before {
+        transition: 0.4s;
+        position: absolute;
+        z-index: -1;
+        top: -79%;
+        left: -75%;
+        content: "";
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+
+      &--active {
+        .burger__item {
+          background-color: transparent;
+          &::before,
+          &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: black;
+            border-radius: 2px;
+          }
+          &::before {
+            transform: rotate(-45deg);
+            top: 0;
+            left: 0;
+          }
+          &::after {
+            transform: rotate(45deg);
+            top: 0;
+            left: 0;
+          }
+        }
+        &::before {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
   }
 
   &__menu {
     display: none;
     flex-direction: column;
     font-size: 14px;
+    width: 222px;
     .btn {
       margin-bottom: 10px;
       font-size: 14px;
     }
-    .btn--radius {
-      padding: 11px 53px;
-    }
   }
   &__selects {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
+    .country-list {
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eeeeee;
+      margin-bottom: 20px;
+      & > * {
+        margin: 10px 0;
+      }
+    }
+    .lang-list {
+      display: flex;
+      gap: 40px;
+      &__item {
+        text-transform: uppercase;
+      }
+    }
+    .for_dropdown {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__select {

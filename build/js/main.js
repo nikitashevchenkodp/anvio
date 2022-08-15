@@ -3,56 +3,81 @@ const burgerBtn = document.querySelector('.burger');
 const mobileNav = document.querySelector('.mobile__nav');
 const pointBtn = document.querySelector('.mobile__nav__point');
 
-const popup = document.querySelector('.popup');
-const popupContent = popup.querySelector('.popup__content');
-const mobileMenu = document.querySelector('.mobile__menu')
+const popup = document.querySelector('.mobile-popup');
+const popupContent = popup.querySelector('.mobile-popup__content');
+const mobileMenu = document.querySelector('.mobile__menu');
 const locationMenu = document.querySelector('.location');
 
-burgerBtn.addEventListener('click', () => {
+//Close popups when display becomes bigger than 1420px;
+const resizeObserver = new ResizeObserver((entries) => entries.forEach(entry => {
+    entry.contentRect.width >= 1420 && closePopup();
+}))
+resizeObserver.observe(document.body)
 
-    popupContent.innerHTML = '';
-    popup.classList.toggle('popup__active')
-    popupContent.appendChild(mobileMenu)
-    mobileMenu.style.display = 'flex';
-})
+//Open and close mobile menu
+document.querySelectorAll('.mobile__nav__item').forEach(item => {
+    item.addEventListener('click', function () {
+        document.querySelectorAll('.mobile__nav__item').forEach(item => item.classList.remove('mobile__nav__item--active'));
+        popupContent.innerHTML = '';
+        console.dir(this)
+        if (this.classList.contains('burger')) {
+            if (this.ariaExpanded == "false") {
+                document.querySelectorAll('.mobile__nav__item').forEach(item => item.ariaExpanded = "false");
+                this.classList.add('mobile__nav__item--active');
+                this.ariaExpanded = "true";
+                popupContent.innerHTML = '';
+                popup.classList.add('mobile-popup__active');
+                popupContent.appendChild(mobileMenu);
+                mobileMenu.style.display = 'flex';
+            } else {
+                this.classList.remove('mobile__nav__item--active');
+                this.ariaExpanded = "false"
+                popupContent.innerHTML = '';
+                popup.classList.remove('mobile-popup__active');
+            }
 
-pointBtn.addEventListener('click', () => {
-    popupContent.innerHTML = '';
-    popup.classList.toggle('popup__active');
-    popupContent.appendChild(locationMenu);
-    locationMenu.style.display = 'flex';
-})
+        }
+        if (this.classList.contains('mobile__nav__point')) {
+            if (this.ariaExpanded == "false") {
+                document.querySelectorAll('.mobile__nav__item').forEach(item => item.ariaExpanded = "false");
+                this.classList.add('mobile__nav__item--active');
+                this.ariaExpanded = "true";
+                popupContent.innerHTML = '';
+                popup.classList.add('mobile-popup__active');
+                popupContent.appendChild(locationMenu);
+                locationMenu.style.display = 'flex';
+            } else {
+                this.classList.remove('mobile__nav__container--active');
+                this.ariaExpanded = "false";
+                popupContent.innerHTML = '';
+                popup.classList.remove('mobile-popup__active');
+            }
+        }
+        this.lastElementChild.classList.contains('mobile__nav__phone') && console.log('phone');
 
-
-
-
-
-
-//Custom dropdown
-
-function dropdown(parentNode, dropBodySelector, activeClass) {
-    const dropBody = parentNode.querySelector(dropBodySelector);
-    parentNode.addEventListener('click', () => {
-        dropBody.classList.toggle(activeClass);
-        parentNode.querySelector('span').style.color = window.getComputedStyle(parentNode.querySelector('span')).color == "rgb(255, 0, 0)" ? "black" : "rgb(255, 0, 0)";
     })
+})
+
+
+
+popup.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mobile-popup')) {
+        console.log('click');
+        closePopup()
+    }
+});
+
+function closePopup() {
+    popup.classList.remove('mobile-popup__active');
+    console.log('work');
+    popupContent.innerHTML = '';
+    document.querySelectorAll('.mobile__nav__item').forEach(container => container.classList.remove('mobile__nav__item--active'));
+    document.querySelectorAll('.mobile__nav__item').forEach(container => container.ariaExpanded = "false");
+    // document.querySelectorAll('.dropdown-body').forEach((item) => item.classList.remove('dropdown-body--open'));
+    // document.querySelectorAll('.mobile-dropdown-body').forEach((item) => item.classList.remove('mobile-dropdown-body--open'));
 }
 
-// dropdown('.mobile__link', '.dropdown', document.querySelector('.mobile__item'));
 
-// const dropDownMenuItems = document.querySelectorAll('.dropJs');
-// console.log(dropDownMenuItems);
-// document.querySelectorAll('a').forEach((link) => {
-//     link.addEventListener('click', (e) => {
-//         e.preventDefault()
-//     })
-// })
-
-// for (let i = 0; i < dropDownMenuItems.length; i++) {
-//     dropdown('span', 'ul', dropDownMenuItems[i]);
-// }
-
-//Mobile dropdown
 const dropdownDesktop = (parentNode, triggerSelector, bodySelector, activeClass) => {
     const trigger = parentNode.querySelector(triggerSelector);
     const body = parentNode.querySelector(bodySelector);
@@ -73,23 +98,27 @@ mobileDropdownList.forEach((item) => {
 });
 
 //Slider
-
-function slider(parentSelector, sliderSelector, tapeSelector, prevSelector, nextSelector, dotsSelector, slideSelector) {
-    const parent = document.querySelector(parentSelector);
+function slider(parent, sliderSelector, tapeSelector, prevSelector, nextSelector, dotsSelector, slideSelector) {
     const sliderContainer = parent.querySelector(sliderSelector);
     const allSlides = parent.querySelector(tapeSelector);
     const prevControl = parent.querySelector(prevSelector);
     const nextControl = parent.querySelector(nextSelector);
     const slides = parent.querySelectorAll(slideSelector);
-    const dots = parent.querySelectorAll(dotsSelector);
-    const slidesQuantity = slides.length;
 
+    const slidesQuantity = slides.length;
     let slideIndex = 1;
     let offset = 0;
-    let step = +window.getComputedStyle(sliderContainer).width.replace(/\D/g, "");
+    let step = +(window.getComputedStyle(parent).width.replace(/[a-zа-яё]/gi, ''))
+    slides.forEach(slide => {
+        slide.style.width = step + 'px'
+        slide.style.height = window.getComputedStyle(parent).height
+    })
     allSlides.style.width = (100 * slidesQuantity) + '%';
+    allSlides.style.gridGap = "20px";
     allSlides.style.transition = '0.7s';
 
+    createDots();
+    const dots = parent.querySelectorAll(dotsSelector);
     activeDots(slideIndex)
 
     prevControl.addEventListener('click', () => {
@@ -123,6 +152,205 @@ function slider(parentSelector, sliderSelector, tapeSelector, prevSelector, next
             index === (i + 1) ? dot.classList.add('slider__dot--active') : console.log('no')
         })
     }
+
+    function createDots() {
+        const dotsContainer = document.createElement('ul');
+        dotsContainer.classList.add('slider__dots');
+        for (let i = 0; i < slidesQuantity; i++) {
+            const dot = document.createElement('li');
+            dot.classList.add('slider__dot');
+            dotsContainer.appendChild(dot);
+        }
+        parent.appendChild(dotsContainer)
+    }
 }
 
-slider('.slider', '.slider__wrapper', '.slider__container', '.slider__controll--prev', '.slider__controll--next', '.slider__dot', '.slide')
+document.querySelectorAll('.slider').forEach(sliderItem => {
+    slider(sliderItem, '.slider__wrapper', '.slider__container', '.slider__controll--prev', '.slider__controll--next', '.slider__dot', '.slide')
+})
+
+//Mobile menu selects
+const mobSelect = (parentNode, triggerSelector, bodySelector, bodyChildrenSelector, activeClass, containerSelector) => {
+    const trigger = parentNode.querySelector(triggerSelector);
+    const body = parentNode.querySelector(bodySelector);
+    const container = document.querySelector(containerSelector);
+    const children = parentNode.querySelectorAll(bodyChildrenSelector);
+    trigger.addEventListener('click', function () {
+        console.log(container);
+        console.log(containerSelector);
+        container.innerHTML = "";
+        body.classList.toggle(activeClass);
+        container.appendChild(body)
+        trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
+
+    })
+
+    children.forEach(child => {
+        child.addEventListener('click', () => {
+            trigger.innerText = child.dataset.value;
+            body.classList.remove(activeClass);
+            trigger.style.color = 'black';
+            container.innerHTML = "";
+        })
+    })
+}
+
+const mobilesSelects = document.querySelector('.mobile__selects').querySelectorAll('.select');
+mobilesSelects.forEach(selectItem => {
+    mobSelect(selectItem, '.mobile-select-trigger', '.mobile-select-body', '.mobile-select-body__item', 'mobile-select-body--open', '.for_dropdown');
+})
+
+//Big Popup;
+
+const triggers = document.querySelectorAll('[data-modal]');
+
+triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        document.querySelector('.big-popup').classList.add('big-popup__active')
+        document.body.style.overflow = "hidden";
+        closePopup();
+    })
+})
+
+document.querySelector('.big-popup').addEventListener('click', (e) => {
+    if (e.target.classList.contains('big-popup')) {
+        document.querySelector('.big-popup').classList.remove('big-popup__active')
+        document.body.style.overflow = "";
+    }
+})
+
+document.querySelector('.big-popup-close').addEventListener('click', () => {
+    document.querySelector('.big-popup').classList.remove('big-popup__active')
+    document.body.style.overflow = "";
+})
+
+
+//Swiper
+const swiperBig = new Swiper(".mySwiper", {
+    slidesPerView: 7,
+    spaceBetween: 0,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // '1200': {
+        //     slidesPerView: 5,
+        //     spaceBetween: 15,
+        // },
+        // '640': {
+        //     slidesPerView: 2,
+        //     spaceBetween: 40,
+        // },
+
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+const swiperEntertaiment = new Swiper(".guestSwiper", {
+    slidesPerView: 4,
+    loop: true,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // '1200': {
+        //     slidesPerView: 5,
+        //     spaceBetween: 15,
+        // },
+        // '640': {
+        //     slidesPerView: 2,
+        //     spaceBetween: 40,
+        // },
+
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+const swiperReview = new Swiper(".reviewSwiper", {
+    slidesPerView: 4.5,
+    loop: true,
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // '1200': {
+        //     slidesPerView: 5,
+        //     spaceBetween: 15,
+        // },
+        // '640': {
+        //     slidesPerView: 2,
+        //     spaceBetween: 40,
+        // },
+
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+const saleSwiper = new Swiper(".saleSwiper", {
+    slidesPerView: 4.5,
+    loop: true,
+    // centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // '1200': {
+        //     slidesPerView: 5,
+        //     spaceBetween: 15,
+        // },
+        // '640': {
+        //     slidesPerView: 2,
+        //     spaceBetween: 40,
+        // },
+
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+//Tabs
+
+function tabs(parentNode, tabControlSelector, tabContentSelector, tabActiveClass) {
+    const allTabsControll = parentNode.querySelectorAll(tabControlSelector);
+    const allTabsContent = parentNode.querySelectorAll(tabContentSelector);
+    showTab()
+
+    function showTab(tabIndex = 0) {
+        allTabsContent.forEach((tab, i) => {
+            if (i == tabIndex) {
+                tab.classList.remove('hide')
+                tab.classList.add('show')
+            } else {
+                tab.classList.add('hide')
+                tab.classList.remove('show')
+            }
+        })
+    }
+
+    allTabsControll.forEach((tabControll, i) => {
+        tabControll.addEventListener('click', () => {
+            allTabsControll.forEach(tab => tab.classList.remove(tabActiveClass))
+            tabControll.classList.add(tabActiveClass)
+            showTab(i)
+        })
+    })
+}
+
+tabs(document.querySelector('.big-tabs__container'), '.big-tabs__header__control', '.big-tabs__item', 'big-tabs__header__control--active');
