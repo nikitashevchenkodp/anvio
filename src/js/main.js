@@ -204,24 +204,41 @@ mobilesSelects.forEach(selectItem => {
 
 const triggers = document.querySelectorAll('[data-modal]');
 
+function openBigPopup() {
+    document.querySelector('.big-popup').classList.add('big-popup__active')
+    document.body.style.overflow = "hidden";
+}
+
+function closeBigPopup() {
+    document.querySelector('.big-popup').classList.remove('big-popup__active')
+    document.querySelector('.big-popup__content').innerHTML = ""
+    document.body.style.overflow = "";
+}
+
 triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-        document.querySelector('.big-popup').classList.add('big-popup__active')
-        document.body.style.overflow = "hidden";
+        openBigPopup();
         closePopup();
     })
 })
 
 document.querySelector('.big-popup').addEventListener('click', (e) => {
     if (e.target.classList.contains('big-popup')) {
-        document.querySelector('.big-popup').classList.remove('big-popup__active')
-        document.body.style.overflow = "";
+        closeBigPopup();
     }
 })
 
 document.querySelector('.big-popup-close').addEventListener('click', () => {
     document.querySelector('.big-popup').classList.remove('big-popup__active')
     document.body.style.overflow = "";
+})
+
+const pricePopupContent = document.querySelector('.popup__prices__container');
+document.querySelector('[data-modal="price"]').addEventListener('click', function () {
+    openBigPopup();
+    document.querySelector('.big-popup__content').appendChild(pricePopupContent);
+    pricePopupContent.style.display = "grid"
+
 })
 
 
@@ -419,3 +436,6 @@ function tabs(parentNode, tabControlSelector, tabContentSelector, tabActiveClass
 }
 
 tabs(document.querySelector('.big-tabs__container'), '.big-tabs__header__control', '.big-tabs__item', 'big-tabs__header__control--active');
+
+
+//Open prices popup;
