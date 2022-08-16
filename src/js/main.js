@@ -82,8 +82,15 @@ const dropdownDesktop = (parentNode, triggerSelector, bodySelector, activeClass)
     const trigger = parentNode.querySelector(triggerSelector);
     const body = parentNode.querySelector(bodySelector);
     trigger.addEventListener('click', function () {
-        body.classList.toggle(activeClass);
-        trigger.style.color = window.getComputedStyle(trigger).color === 'rgb(255, 0, 0)' ? 'black' : 'rgb(255, 0, 0)';
+        if (body.classList.contains(activeClass)) {
+            document.querySelectorAll(bodySelector).forEach((item) => item.classList.remove(activeClass))
+            document.querySelectorAll(triggerSelector).forEach((item) => item.style.color = 'black')
+        } else {
+            document.querySelectorAll(bodySelector).forEach((item) => item.classList.remove(activeClass))
+            document.querySelectorAll(triggerSelector).forEach((item) => item.style.color = 'black')
+            body.classList.add(activeClass);
+            trigger.style.color = 'rgb(255, 0, 0)';
+        }
     })
 }
 //Desktop dropdowns
@@ -96,6 +103,10 @@ const mobileDropdownList = document.querySelectorAll('.mobile-dropdown-container
 mobileDropdownList.forEach((item) => {
     dropdownDesktop(item, '.mobile-dropdown-trigger', '.mobile-dropdown-body', 'mobile-dropdown-body--open');
 });
+
+//Close Selects
+
+
 
 //Slider
 function slider(parent, sliderSelector, tapeSelector, prevSelector, nextSelector, dotsSelector, slideSelector) {
@@ -215,12 +226,12 @@ function closeBigPopup() {
     document.body.style.overflow = "";
 }
 
-triggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-        openBigPopup();
-        closePopup();
-    })
-})
+// triggers.forEach(trigger => {
+//     trigger.addEventListener('click', () => {
+//         openBigPopup();
+//         closePopup();
+//     })
+// })
 
 document.querySelector('.big-popup').addEventListener('click', (e) => {
     if (e.target.classList.contains('big-popup')) {
@@ -233,12 +244,17 @@ document.querySelector('.big-popup-close').addEventListener('click', () => {
     document.body.style.overflow = "";
 })
 
-const pricePopupContent = document.querySelector('.popup__prices__container');
-document.querySelector('[data-modal="price"]').addEventListener('click', function () {
-    openBigPopup();
-    document.querySelector('.big-popup__content').appendChild(pricePopupContent);
-    pricePopupContent.style.display = "grid"
+//Open prices popup;
 
+const pricePopupContent = document.querySelector('.popup__prices__container');
+document.querySelectorAll('[data-modal="price"]').forEach(priceModal => {
+    priceModal.addEventListener('click', function () {
+        closePopup()
+        openBigPopup();
+        document.querySelector('.big-popup__content').appendChild(pricePopupContent);
+        pricePopupContent.style.display = "grid"
+
+    })
 })
 
 
@@ -436,6 +452,3 @@ function tabs(parentNode, tabControlSelector, tabContentSelector, tabActiveClass
 }
 
 tabs(document.querySelector('.big-tabs__container'), '.big-tabs__header__control', '.big-tabs__item', 'big-tabs__header__control--active');
-
-
-//Open prices popup;
