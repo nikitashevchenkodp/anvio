@@ -13,6 +13,5 @@ module.exports = {
     // indent: ['error', 4],
     // quotes: ['warn', 'single'],
     // 'multiline - ternary': ['error', 'always'],
-    'no-return-assign': "error",
   },
 };
