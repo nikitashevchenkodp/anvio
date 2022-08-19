@@ -1,0 +1,123 @@
+.popup-game {
+  &__container {
+    display: none;
+    gap: 30px;
+    @media screen and (max-width: 1050px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn {
+      width: 100%;
+      margin-top: auto;
+      padding: 20px 0;
+      @media screen and (max-width: 1050px) {
+        margin-top: 20px;
+      }
+      @media screen and (max-width: 450px) {
+        padding: 11px 0;
+        font-size: 14px;
+      }
+    }
+  }
+  &__media {
+    display: flex;
+    flex-direction: column;
+    .circle {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  &__galery {
+    img {
+      width: 100%;
+      height: 100%;
+      //   object-fit: fill;
+    }
+    display: grid;
+    grid-template-columns: repeat(2, minmax(125px, 250px));
+    // grid-template-rows: repeat(3, minmax(50px, 170px));
+    grid-gap: 10px;
+    &__img {
+      border-radius: 20px;
+      max-height: 170px;
+      &--biggest {
+        max-height: 340px;
+        border-radius: 20px;
+        position: relative;
+        grid-column: span 2;
+        grid-row: span 2;
+        width: 100%;
+        max-width: 550px;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__info {
+    max-width: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .btn {
+    }
+    .game__info {
+      &__title {
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 600;
+      }
+      &__data {
+        display: flex;
+        gap: 30px;
+        font-size: 24px;
+        line-height: 30px;
+        margin: 0 auto;
+        @media screen and (max-width: 540px) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+      &__kind {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      &__value {
+        font-weight: 600;
+      }
+      &__list {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        &__item {
+          width: 100%;
+          padding: 10px 0;
+          text-align: center;
+          background-color: #fff;
+          border-radius: 20px;
+          font-size: 24px;
+          line-height: 31px;
+          font-weight: 600;
+          @media screen and (max-width: 540px) {
+            font-size: 14px;
+            line-height: 17px;
+          }
+          img {
+            width: 35px;
+            height: 35px;
+            @media screen and (max-width: 540px) {
+              width: 26px;
+              height: 26px;
+            }
+          }
+        }
+      }
+      &__text {
+        @media screen and (max-width: 540px) {
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+}

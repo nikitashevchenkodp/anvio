@@ -15,15 +15,20 @@
     "css-loader": "^6.7.1",
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
     "html-loader": "^3.1.2",
     "html-webpack-plugin": "^5.5.0",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
     "mini-css-extract-plugin": "^2.6.1",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.0",
+    "prettier": "^2.7.1",
     "sass": "^1.54.4",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
@@ -32,10 +37,6 @@
     "webpack-dev-server": "^4.10.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-webpack-plugin": "^3.2.0",
-    "prettier": "^2.7.1",
     "swiper": "^8.3.2"
   }
 }

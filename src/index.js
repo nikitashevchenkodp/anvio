@@ -1,18 +1,18 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-return-assign */
-/* eslint-disable no-shadow */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 
 import "./styles/style.scss";
 import "./index.html";
-
 import slider from "./modules/mySlider";
 import tabs from "./modules/tabs";
 import dropdownDesktop from "./modules/dropdown";
 import mobSelect from "./modules/mobileSelect";
+import accordeon from "./modules/accordeon";
 import "./modules/swiperSliders";
 
 // const burgerBtn = document.querySelector('.burger');
@@ -175,14 +175,24 @@ document.querySelector(".big-popup-close").addEventListener("click", () => {
 
 // Open prices popup;
 const pricePopupContent = document.querySelector(".popup__prices__container");
-document.querySelectorAll('[data-modal="price"]').forEach((priceModal) => {
-  priceModal.addEventListener("click", () => {
+const gamePopupContent = document.querySelector(".popup-game__container");
+const bigPopupContent = document.querySelector(".big-popup__content");
+
+document.querySelectorAll("[data-modal]").forEach((priceModal) => {
+  priceModal.addEventListener("click", (e) => {
     closePopup();
+    closeBigPopup();
     openBigPopup();
-    document
-      .querySelector(".big-popup__content")
-      .appendChild(pricePopupContent);
-    pricePopupContent.style.display = "grid";
+    if (
+      e.target.dataset.modal === "buy" ||
+      e.target.dataset.modal === "price"
+    ) {
+      bigPopupContent.appendChild(pricePopupContent);
+      pricePopupContent.style.display = "grid";
+    } else if (e.target.dataset.modal === "info") {
+      gamePopupContent.style.display = "flex";
+      bigPopupContent.appendChild(gamePopupContent);
+    }
   });
 });
 
@@ -213,3 +223,5 @@ document.querySelectorAll("[data-scroll]").forEach((item) => {
     });
   });
 });
+
+accordeon();

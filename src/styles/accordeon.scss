@@ -1,0 +1,243 @@
+.accordeons {
+  display: block;
+  padding: 20px 0;
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+  .container {
+    padding: 0 20px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .accordeonSwiper2 {
+    height: 500px;
+    width: 100%;
+    img {
+      border-radius: 20px;
+    }
+    .swiper-slide {
+      border-radius: 20px;
+    }
+  }
+
+  .accordeonSwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    img {
+      border-radius: 10px;
+    }
+  }
+
+  .accordeonSwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .accordeonSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border-radius: 14px;
+    border: 3px solid red;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+//Accordeon
+
+.accordeon {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 15px;
+  &__button {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+    padding: 20px 30px;
+    border: none;
+    border: 5px solid #fff;
+    color: red;
+    transition: 0.4s;
+    &::before,
+    &::after {
+      content: "";
+      width: 12px;
+      height: 2px;
+      background-color: red;
+      position: absolute;
+      transition: 0.4s;
+    }
+    &::before {
+      transform: rotate(-45deg);
+      right: 20px;
+      top: 47%;
+    }
+    &::after {
+      transform: rotate(45deg);
+      right: 28.5px;
+      top: 47%;
+    }
+  }
+  &__helper {
+    @media screen and (min-width: 900px) {
+      max-width: 50%;
+    }
+  }
+  &__body {
+    max-height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.8s;
+    @media screen and (min-width: 900px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__img {
+    margin-bottom: -170px;
+    img {
+      width: 100%;
+    }
+    @media screen and (min-width: 450px) {
+      margin-bottom: -185px;
+    }
+    @media screen and (min-width: 600px) {
+      margin-bottom: -210px;
+    }
+    @media screen and (min-width: 800px) {
+      margin-bottom: -270px;
+    }
+  }
+  &__info {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+  &__title {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  &__list-item {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 20px;
+  }
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .btn {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 11px 20px;
+  }
+
+  &__slider {
+    padding: 0 20px;
+    position: relative;
+    @media screen and (min-width: 900px) {
+      max-width: 50%;
+    }
+  }
+}
+
+.accordeon__open .accordeon__body {
+  max-height: 10000px;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.8s;
+}
+.accordeon__open {
+  padding-bottom: 30px;
+}
+.accordeon__open .accordeon__img {
+  margin-top: 30px;
+}
+.accordeon__open .accordeon__button {
+  border-radius: 20px 20px 0 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eeeeee;
+  color: black;
+  &::before,
+  &::after {
+    background-color: black;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}

@@ -1,12 +1,15 @@
+/* eslint-disable no-var */
 /* eslint-disable no-unused-vars */
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Thumbs, FreeMode } from "swiper";
+// eslint-disable-next-line import/no-unresolved
+import "swiper/css";
 
-const swiperBig = new Swiper('.mySwiper', {
+const swiperBig = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 0,
   modules: [Navigation, Pagination],
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
@@ -25,19 +28,19 @@ const swiperBig = new Swiper('.mySwiper', {
     },
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
-const swiperEntertaiment = new Swiper('.guestSwiper', {
+const swiperEntertaiment = new Swiper(".guestSwiper", {
   slidesPerView: 1.5,
   centeredSlides: true,
   loop: true,
   modules: [Navigation, Pagination],
   spaceBetween: 30,
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
@@ -56,19 +59,19 @@ const swiperEntertaiment = new Swiper('.guestSwiper', {
     },
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
-const swiperReview = new Swiper('.reviewSwiper', {
+const swiperReview = new Swiper(".reviewSwiper", {
   slidesPerView: 1.5,
   loop: true,
   modules: [Navigation, Pagination],
   // centeredSlides: true,
   spaceBetween: 30,
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
@@ -93,18 +96,18 @@ const swiperReview = new Swiper('.reviewSwiper', {
     },
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
-const saleSwiper = new Swiper('.saleSwiper', {
+const saleSwiper = new Swiper(".saleSwiper", {
   slidesPerView: 1.2,
   loop: true,
   modules: [Navigation, Pagination],
   // centeredSlides: true,
   spaceBetween: 30,
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
@@ -130,18 +133,18 @@ const saleSwiper = new Swiper('.saleSwiper', {
     },
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
-const swiperPreview = new Swiper('.swiperPreview', {
+const swiperPreview = new Swiper(".swiperPreview", {
   slidesPerView: 1,
   loop: true,
   modules: [Navigation, Pagination],
   centeredSlides: false,
   spaceBetween: 15,
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   breakpoints: {
@@ -156,7 +159,27 @@ const swiperPreview = new Swiper('.swiperPreview', {
     },
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+const accordeonSwiper = new Swiper(".accordeonSwiper", {
+  spaceBetween: 10,
+  slidesPerView: 3,
+  modules: [Navigation, Pagination, Thumbs],
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+
+const accordeonSwiper2 = new Swiper(".accordeonSwiper2", {
+  spaceBetween: 40,
+  modules: [Navigation, Pagination, Thumbs],
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: accordeonSwiper,
   },
 });
