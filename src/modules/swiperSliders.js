@@ -65,11 +65,11 @@ const swiperEntertaiment = new Swiper(".guestSwiper", {
 });
 
 const swiperReview = new Swiper(".reviewSwiper", {
-  slidesPerView: 1.5,
+  slidesPerView: 1.2,
   loop: true,
   modules: [Navigation, Pagination],
   // centeredSlides: true,
-  spaceBetween: 30,
+  spaceBetween: 10,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -85,12 +85,12 @@ const swiperReview = new Swiper(".reviewSwiper", {
       centeredSlides: true,
     },
     1350: {
-      slidesPerView: 4.2,
+      slidesPerView: 3.2,
       spaceBetween: 20,
       centeredSlides: true,
     },
     1600: {
-      slidesPerView: 4.5,
+      slidesPerView: 4,
       spaceBetween: 15,
       centeredSlides: true,
     },

@@ -12,8 +12,7 @@ module.exports = {
   },
   rules: {
     "no-shadow": ["warn", { hoist: "never" }],
-    // indent: ['error', 4],
-    // quotes: ['warn', 'single'],
-    // 'multiline - ternary': ['error', 'always'],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
   },
 };

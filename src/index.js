@@ -14,6 +14,7 @@ import dropdownDesktop from "./modules/dropdown";
 import mobSelect from "./modules/mobileSelect";
 import accordeon from "./modules/accordeon";
 import "./modules/swiperSliders";
+import popupPrices from "./modules/popupPrices";
 
 // const burgerBtn = document.querySelector('.burger');
 // const mobileNav = document.querySelector('.mobile__nav');
@@ -225,3 +226,4 @@ document.querySelectorAll("[data-scroll]").forEach((item) => {
 });
 
 accordeon();
+popupPrices();
