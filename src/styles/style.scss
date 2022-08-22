@@ -1058,6 +1058,12 @@
   border-radius: 30px;
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  @media screen and (max-width: 1800px) {
+    padding: 30px;
+  }
+  @media screen and (max-width: 1400px) {
+    padding: 20px;
+  }
 
   &:hover .review__body {
     transition: all 0.4s;
@@ -1082,17 +1088,27 @@
   &__google-maps {
     width: 50px;
     height: 50px;
+    margin-left: auto;
   }
   &__name {
     font-weight: 600;
+    @media screen and (max-width: 1800px) {
+      font-size: 14px;
+    }
   }
   &__date {
     color: rgba(0, 0, 0, 0.5);
+    @media screen and (max-width: 1800px) {
+      font-size: 14px;
+    }
   }
   &__container {
     display: flex;
     gap: 20px;
     align-items: center;
+    @media screen and (max-width: 1800px) {
+      flex-direction: column;
+    }
   }
   &__rating {
     display: flex;
@@ -1107,6 +1123,9 @@
     line-height: 24px;
     transition: 0.4s;
     max-height: 130px;
+    @media screen and (max-width: 1800px) {
+      font-size: 14px;
+    }
   }
   // .swiper {
   //   overflow: auto;
@@ -1449,27 +1468,6 @@
 
 //Footer
 
-//copyright
-
-.copyright {
-  .container {
-    padding: 0;
-    display: flex;
-    color: white;
-    justify-content: space-between;
-  }
-  background-color: #1e1e1e;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-right: 15px;
-  padding-left: 15px;
-
-  &__link-list {
-    display: flex;
-    gap: 30px;
-  }
-}
-
 //Popups
 
 .popup__prices {
@@ -1482,6 +1480,10 @@
     grid-template-columns: repeat(2, minmax(250px, 560px));
     grid-template-rows: repeat(3, minmax(143px, 167px));
     grid-gap: 10px;
+    grid-auto-flow: column dense;
+    @media screen and (max-width: 1330px) {
+      grid-auto-flow: row;
+    }
     @media screen and (max-width: 1330px) {
       grid-template-columns: 560px;
     }
@@ -1493,9 +1495,11 @@
     .item3 {
       grid-row: span 3;
       border: 5px solid $main-color;
+      transition: all 0.4s;
     }
     .item1 {
       grid-row: span 1;
+      transition: all 0.4s;
       .arena__description__title {
         font-size: 24px;
         line-height: 1;
@@ -1609,3 +1613,7 @@
 .show {
   display: flex;
 }
+
+// .swiperPreview {
+//   max-height: 200px;
+// }

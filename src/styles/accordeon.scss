@@ -145,7 +145,7 @@
     max-height: 0px;
     visibility: hidden;
     opacity: 0;
-    transition: 0.8s;
+    transition: 0.4s;
     @media screen and (min-width: 900px) {
       display: flex;
       flex-wrap: wrap;
@@ -217,7 +217,7 @@
   max-height: 10000px;
   visibility: visible;
   opacity: 1;
-  transition: 0.8s;
+  transition: 0.4s;
 }
 .accordeon__open {
   padding-bottom: 30px;
