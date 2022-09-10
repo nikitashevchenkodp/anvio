@@ -5,7 +5,8 @@
 @import "./slider.scss";
 @import "./popup-game.scss";
 @import "./accordeon.scss";
-@import "./footer.scss"; //Preview
+@import "./footer.scss";
+@import "./order.scss"; //Preview
 //////////////////////////////////////////////
 .preview {
   width: 100%;
@@ -1617,3 +1618,41 @@
 // .swiperPreview {
 //   max-height: 200px;
 // }
+
+//@at-root
+
+.place {
+  display: flex;
+  position: absolute;
+  right: 0;
+  border-radius: 30px 0px 30px 30px;
+  box-shadow: 4px 4px 63px 23px rgb(34 60 80 / 22%);
+  &__item {
+    cursor: pointer;
+    &_selected {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  span {
+    display: block;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 31px;
+    margin-bottom: 30px;
+  }
+  &__country {
+    border-right: 2px solid #eeeeee;
+    padding-right: 40px;
+    margin-right: 30px;
+  }
+  &__city,
+  &__country {
+    text-transform: uppercase;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 240px;
+  }
+}

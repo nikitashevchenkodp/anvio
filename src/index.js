@@ -15,6 +15,9 @@ import mobSelect from "./modules/mobileSelect";
 import accordeon from "./modules/accordeon";
 import "./modules/swiperSliders";
 import popupPrices from "./modules/popupPrices";
+import "./modules/dateSlides";
+import "./modules/timeSlides";
+import "./modules/order";
 
 // const burgerBtn = document.querySelector('.burger');
 // const mobileNav = document.querySelector('.mobile__nav');
@@ -65,11 +68,13 @@ document.querySelectorAll(".mobile__nav__item").forEach((item) => {
         popup.classList.add("mobile-popup__active");
         popupContent.appendChild(mobileMenu);
         mobileMenu.style.display = "flex";
+        document.body.style.overflow = "hidden";
       } else {
         this.classList.remove("mobile__nav__item--active");
         this.ariaExpanded = "false";
         popupContent.innerHTML = "";
         popup.classList.remove("mobile-popup__active");
+        document.body.style.overflow = "";
       }
     }
     if (this.classList.contains("mobile__nav__point")) {
@@ -83,11 +88,13 @@ document.querySelectorAll(".mobile__nav__item").forEach((item) => {
         popup.classList.add("mobile-popup__active");
         popupContent.appendChild(locationMenu);
         locationMenu.style.display = "flex";
+        document.body.style.overflow = "hidden";
       } else {
         this.classList.remove("mobile__nav__container--active");
         this.ariaExpanded = "false";
         popupContent.innerHTML = "";
         popup.classList.remove("mobile-popup__active");
+        document.body.style.overflow = "";
       }
     }
   });
@@ -96,6 +103,7 @@ document.querySelectorAll(".mobile__nav__item").forEach((item) => {
 popup.addEventListener("click", (e) => {
   if (e.target.classList.contains("mobile-popup")) {
     closePopup();
+    document.body.style.overflow = "";
   }
 });
 

@@ -64,9 +64,7 @@ export default function slider(
   function activeDots(index) {
     dots.forEach((dot) => dot.classList.remove("slider__dot--active"));
     dots.forEach((dot, i) => {
-      index === i + 1
-        ? dot.classList.add("slider__dot--active")
-        : console.log("no");
+      index === i + 1 && dot.classList.add("slider__dot--active");
     });
   }
 

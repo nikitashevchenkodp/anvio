@@ -11,13 +11,25 @@ const mobSelect = (
   const container = document.querySelector(containerSelector);
   const children = parentNode.querySelectorAll(bodyChildrenSelector);
   trigger.addEventListener("click", () => {
-    container.innerHTML = "";
-    body.classList.toggle(activeClass);
-    container.appendChild(body);
-    trigger.style.color =
-      window.getComputedStyle(trigger).color === "rgb(255, 0, 0)"
-        ? "black"
-        : "rgb(255, 0, 0)";
+    if (window.getComputedStyle(trigger).color === "rgb(255, 0, 0)") {
+      body.classList.remove(activeClass);
+      trigger.style.color = "black";
+    } else {
+      document.querySelectorAll(bodySelector).forEach((body) => {
+        body.classList.remove(activeClass);
+      });
+      document.querySelectorAll(triggerSelector).forEach((trig) => {
+        // eslint-disable-next-line no-param-reassign
+        trig.style.color = "black";
+      });
+      container.innerHTML = "";
+      body.classList.toggle(activeClass);
+      container.appendChild(body);
+      trigger.style.color =
+        window.getComputedStyle(trigger).color === "rgb(255, 0, 0)"
+          ? "black"
+          : "rgb(255, 0, 0)";
+    }
   });
 
   children.forEach((child) => {

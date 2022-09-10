@@ -183,3 +183,25 @@ const accordeonSwiper2 = new Swiper(".accordeonSwiper2", {
     swiper: accordeonSwiper,
   },
 });
+
+const orderGameSlider = new Swiper(".orderGameSlider", {
+  slidesPerView: 4,
+  spaceBetween: 5,
+  freeMode: true,
+});
+
+const orderDateSlider = new Swiper(".orderDateSlider", {
+  slidesPerView: 9.5,
+  spaceBetween: 5,
+  freeMode: true,
+});
+
+var orderTimeSlider = new Swiper(".orderTimeSlider", {
+  direction: "vertical",
+  spaceBetween: 10,
+  slidesPerView: 6,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});

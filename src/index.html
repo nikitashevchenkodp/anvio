@@ -87,11 +87,29 @@
             <li class="desktop-nav__item dropdown-container">
               <button class="btn btn--nav dropdown-trigger">КИЕВ</button>
               <!--Dropdown Place-->
-              <ul class="dropdown-body place">
-                <li class="dropdown-body__item">Днепр</li>
-                <li class="dropdown-body__item">Львов</li>
-                <li class="dropdown-body__item">Одесса</li>
-              </ul>
+              <div class="dropdown-body place">
+                <div class="place__country">
+                  <span>Страна</span>
+                  <ul class="place__list">
+                    <li data-country="KR" class="place__item ">КЫРГЫЗСКАЯ РЕСПУБЛИКА</li>
+                    <li data-country="AZ" class="place__item">АЗЕРБАЙДЖАН</li>
+                    <li data-country="UA" class="place__item place__item_selected">УКРАИНА</li>
+                    <li data-country="USA" class="place__item">США</li>
+                    <li data-country="BG" class="place__item">БЕЛЬГИЯ</li>
+                    <li data-country="SA" class="place__item">САУДОВСКАЯ АРАВИЯ</li>
+                    <li data-country="FR" class="place__item">ФРАНЦИЯ</li>
+                    <li data-country="EG" class="place__item">ЕГИПЕТ</li>
+                  </ul>
+                </div>
+                <div class="place__city">
+                  <span>Город</span>
+                  <ul class="place__list">
+                    <li data-city="Kyev" class="place__item place__item_selected">Киев</li>
+                    <li data-city="Dnipro" class="place__item">Днепр(скоро)</li>
+                    <li data-country="Lviv" class="place__item">Львов(скоро)</li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li class="desktop-nav__item">
               <button class="btn">ВОЙТИ</button>
@@ -101,7 +119,7 @@
               <!--Dropdown Language-->
               <ul class="dropdown-body lang">
                 <li class="dropdown-body__item">русский</li>
-                <li class="dropdown-body__item">english</li>
+                <li class="dropdown-body__item">Українська</li>
               </ul>
             </li>
           </ul>
@@ -122,8 +140,8 @@
         <!--Mobile menu-->
         <div class="mobile__menu">
           <div class="mobile__selects">
-            <div class="mobile-select-container select-place">
-              <button class="btn btn--nav mobile-select-trigger-place">КИЕВ</button>
+            <div class="mobile-select-container select">
+              <button class="btn btn--nav mobile-select-trigger">КИЕВ</button>
               <div class="mobile-select-body place--mobile">
                 <span>Страна</span>
                 <ul class="country-list">
@@ -1941,8 +1959,180 @@
   </div>
 
   <!--Popup-->
-  <div class="big-popup">
+  <div class="big-popup big-popup__active">
     <div class="big-popup__content">
+      <div class="order">
+
+        <!--Coose the address-->
+        <div class="order__block">
+          <div class="order__circle">1</div>
+          <div class="order__info">
+            <h4 class="order__title">Выберите место игры</h4>
+            <div class="order__item">
+              <input class="order__input" type="text" value="Киев, Вадима Гетьмана, дом 6">
+            </div>
+          </div>
+        </div>
+
+        <!--Choose the game-->
+        <div class="order__block">
+          <div class="order__circle">2</div>
+          <div class="order__info">
+            <h4 class="order__title">Выберите Игру</h4>
+            <div class="order__item">
+              <div class="swiper orderGameSlider ">
+                <div class="swiper-wrapper">
+                  <div data-order="no-choise" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 927no__choise.svg" alt="">
+                  </div>
+                  <div data-order="city-z" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 922cyty_zzz.png" alt="">
+                  </div>
+                  <div data-order="survivor" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 897survivors.svg" alt="">
+                  </div>
+                  <div data-order="antidote" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 923antidote.svg" alt="">
+                  </div>
+                  <div data-order="revolta" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 924revolta.svg" alt="">
+                  </div>
+                  <div data-order="statio-zarya" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 925station_zaria.svg" alt="">
+                  </div>
+                  <div data-order="lost-sanctuary" class="swiper-slide">
+                    <img src="./img/big_tabs/Frame 926lost_sanctuary (1).svg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Coose the date-->
+
+        <div class="order__block">
+          <div class="order__circle">3</div>
+          <div class="order__info">
+            <h4 class="order__title">Выберите Игру</h4>
+            <div class="order__item">
+              <div class="swiper orderDateSlider">
+                <div class="swiper-wrapper">
+                  <!--dateSlides.js-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Choose the time-->
+
+        <div class="order__block">
+          <div class="order__circle">4</div>
+          <div class="order__info">
+            <h4 class="order__title">Выберите Время</h4>
+            <div class="order__item">
+              <p>Расписание на 22 марта</p>
+              <div class="swiper orderTimeSlider">
+                <div class="swiper-wrapper">
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                  <div data-order="10:45" class="swiper-slide">
+                    <p class="schedule__time">10:45</p>
+                    <p class="schedule__available">Осталось 2 места</p>
+                    <p class="schedule__price">4000 ₴ за весь сеанс</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--Finall-->
+
+        <div class="order__block">
+          <div class="order__circle order__circle--last">5</div>
+          <div class="order__info">
+            <h4 class="order__title">Информация о заказе и оплата</h4>
+            <p class="order__text">Чтобы забронировать сеанс, пожалуйста, выполните вход в личный кабинет.</p>
+            <p class="order__text">Для зарегистрированных пользователей предусмотрена бонусная программа и накопительные
+              скидки.</p>
+            <div class="order__item">
+              <div class="form">
+                <div class="form__title">Код отправлен на +380661234556</div>
+                <div class="form__fieldset">
+                  <label class="form__label" for="phone">
+                    Код для входа в личный кабинет
+                    <input class="form__input" id="phone" type="text">
+                  </label>
+                  <button class="btn btn--red btn--radius">Войти</button>
+                  <p>Указали неверный номер?</p>
+                  <button class="btn btn--radius btn--transparent">Ввести ещё раз</button>
+                </div>
+                <div class="gift">
+                  <img class="gift__icon" src="./img/big_tabs/Vectorgift.svg">
+                  <div class="gift__info">
+                    <div class="gift__text">Получи</div>
+                    <div class="gift__sum">500</div>
+                    <div class="gift__text"><strong>бонусных баллов</strong><br> за регистрацию!</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
       <div class="big-popup-close"></div>
     </div>
   </div>
