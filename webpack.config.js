@@ -7,12 +7,15 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = ({ development }) => ({
   mode: development ? "development" : "production",
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.ts",
   },
   output: {
     filename: "[name].[contenthash].js",
     assetModuleFilename: "asset/[hash][ext][query]",
     clean: true,
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
   },
   devtool: development && "inline-source-map",
   plugins: [
@@ -44,6 +47,11 @@ module.exports = ({ development }) => ({
   ],
   module: {
     rules: [
+      {
+        test: /\.ts?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.html$/i,
         loader: "html-loader",

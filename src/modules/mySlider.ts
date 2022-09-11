@@ -6,19 +6,21 @@
 // Slider
 // eslint-disable-next-line max-len
 export default function slider(
-  parent,
-  sliderSelector,
-  tapeSelector,
-  prevSelector,
-  nextSelector,
-  dotsSelector,
-  slideSelector,
+  parent: HTMLElement,
+  sliderSelector: string,
+  tapeSelector: string,
+  prevSelector: string,
+  nextSelector: string,
+  dotsSelector: string,
+  slideSelector: string,
 ) {
   const sliderContainer = parent.querySelector(sliderSelector);
-  const allSlides = parent.querySelector(tapeSelector);
-  const prevControl = parent.querySelector(prevSelector);
-  const nextControl = parent.querySelector(nextSelector);
-  const slides = parent.querySelectorAll(slideSelector);
+  const allSlides = parent.querySelector(tapeSelector) as HTMLElement;
+  const prevControl = parent.querySelector(prevSelector) as HTMLElement;
+  const nextControl = parent.querySelector(nextSelector) as HTMLElement;
+  const slides = parent.querySelectorAll(
+    slideSelector,
+  ) as NodeListOf<HTMLElement>;
 
   const slidesQuantity = slides.length;
   let slideIndex = 1;
@@ -61,7 +63,7 @@ export default function slider(
     activeDots(slideIndex);
   });
 
-  function activeDots(index) {
+  function activeDots(index: number) {
     dots.forEach((dot) => dot.classList.remove("slider__dot--active"));
     dots.forEach((dot, i) => {
       index === i + 1 && dot.classList.add("slider__dot--active");

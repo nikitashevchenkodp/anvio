@@ -1,4 +1,4 @@
-export const months = [
+export const months: Array<string> = [
   "Январь",
   "Февраль",
   "Март",
@@ -13,4 +13,12 @@ export const months = [
   "Декабрь",
 ];
 
-export const daysOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+export const daysOfWeek: Array<string> = [
+  "Вс",
+  "Пн",
+  "Вт",
+  "Ср",
+  "Чт",
+  "Пт",
+  "Сб",
+];

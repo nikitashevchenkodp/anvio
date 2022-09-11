@@ -22,10 +22,10 @@ import "./modules/order";
 // const burgerBtn = document.querySelector('.burger');
 // const mobileNav = document.querySelector('.mobile__nav');
 // const pointBtn = document.querySelector('.mobile__nav__point');
-const popup = document.querySelector(".mobile-popup");
-const popupContent = popup.querySelector(".mobile-popup__content");
-const mobileMenu = document.querySelector(".mobile__menu");
-const locationMenu = document.querySelector(".location");
+const popup = document.querySelector(".mobile-popup")!;
+const popupContent = popup.querySelector(".mobile-popup__content")!;
+const mobileMenu = document.querySelector(".mobile__menu")! as HTMLElement;
+const locationMenu = document.querySelector(".location")! as HTMLElement;
 
 function closePopup() {
   popup.classList.remove("mobile-popup__active");
@@ -101,14 +101,17 @@ document.querySelectorAll(".mobile__nav__item").forEach((item) => {
 });
 
 popup.addEventListener("click", (e) => {
-  if (e.target.classList.contains("mobile-popup")) {
+  const target = e.target as HTMLElement;
+  if (target.classList.contains("mobile-popup")) {
     closePopup();
     document.body.style.overflow = "";
   }
 });
 
 // Desktop dropdowns
-const dropdownList = document.querySelectorAll(".dropdown-container");
+const dropdownList: NodeListOf<HTMLElement> = document.querySelectorAll(
+  ".dropdown-container",
+);
 dropdownList.forEach((item) => {
   dropdownDesktop(
     item,
@@ -118,7 +121,7 @@ dropdownList.forEach((item) => {
   );
 });
 // Mobile dropdowns
-const mobileDropdownList = document.querySelectorAll(
+const mobileDropdownList: NodeListOf<HTMLElement> = document.querySelectorAll(
   ".mobile-dropdown-container",
 );
 mobileDropdownList.forEach((item) => {
@@ -131,7 +134,8 @@ mobileDropdownList.forEach((item) => {
 });
 
 // Sliders
-document.querySelectorAll(".slider").forEach((sliderItem) => {
+const sliders: NodeListOf<HTMLElement> = document.querySelectorAll(".slider");
+sliders.forEach((sliderItem) => {
   slider(
     sliderItem,
     ".slider__wrapper",
@@ -144,8 +148,8 @@ document.querySelectorAll(".slider").forEach((sliderItem) => {
 });
 
 // Mobile menu selects
-const mobilesSelects = document
-  .querySelector(".mobile__selects")
+const mobilesSelects: NodeListOf<HTMLElement> = document
+  .querySelector(".mobile__selects")!
   .querySelectorAll(".select");
 mobilesSelects.forEach((selectItem) => {
   mobSelect(
@@ -161,44 +165,49 @@ mobilesSelects.forEach((selectItem) => {
 // Big Popup;
 
 function openBigPopup() {
-  document.querySelector(".big-popup").classList.add("big-popup__active");
+  document.querySelector(".big-popup")!.classList.add("big-popup__active");
   document.body.style.overflow = "hidden";
 }
 
 function closeBigPopup() {
-  document.querySelector(".big-popup").classList.remove("big-popup__active");
-  document.querySelector(".big-popup__content").innerHTML = "";
+  document.querySelector(".big-popup")!.classList.remove("big-popup__active");
+  document.querySelector(".big-popup__content")!.innerHTML = "";
   document.body.style.overflow = "";
 }
 
-document.querySelector(".big-popup").addEventListener("click", (e) => {
-  if (e.target.classList.contains("big-popup")) {
+document.querySelector(".big-popup")!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.classList.contains("big-popup")) {
     closeBigPopup();
   }
 });
 
-document.querySelector(".big-popup-close").addEventListener("click", () => {
-  document.querySelector(".big-popup").classList.remove("big-popup__active");
+document.querySelector(".big-popup-close")!.addEventListener("click", () => {
+  document.querySelector(".big-popup")!.classList.remove("big-popup__active");
   document.body.style.overflow = "";
 });
 
 // Open prices popup;
-const pricePopupContent = document.querySelector(".popup__prices__container");
-const gamePopupContent = document.querySelector(".popup-game__container");
-const bigPopupContent = document.querySelector(".big-popup__content");
+const pricePopupContent = document.querySelector(
+  ".popup__prices__container",
+)! as HTMLElement;
+const gamePopupContent = document.querySelector(
+  ".popup-game__container",
+)! as HTMLElement;
+const bigPopupContent = document.querySelector(
+  ".big-popup__content",
+)! as HTMLElement;
 
 document.querySelectorAll("[data-modal]").forEach((priceModal) => {
   priceModal.addEventListener("click", (e) => {
     closePopup();
     closeBigPopup();
     openBigPopup();
-    if (
-      e.target.dataset.modal === "buy" ||
-      e.target.dataset.modal === "price"
-    ) {
+    const target = e.target as HTMLElement;
+    if (target.dataset.modal === "buy" || target.dataset.modal === "price") {
       bigPopupContent.appendChild(pricePopupContent);
       pricePopupContent.style.display = "grid";
-    } else if (e.target.dataset.modal === "info") {
+    } else if (target.dataset.modal === "info") {
       gamePopupContent.style.display = "flex";
       bigPopupContent.appendChild(gamePopupContent);
     }
@@ -208,7 +217,7 @@ document.querySelectorAll("[data-modal]").forEach((priceModal) => {
 // Swiper
 
 tabs(
-  document.querySelector(".big-tabs__container"),
+  document.querySelector(".big-tabs__container")!,
   ".big-tabs__header__control",
   ".big-tabs__item",
   "big-tabs__header__control--active",
@@ -222,12 +231,14 @@ document.querySelectorAll("[data-scroll]").forEach((item) => {
     document.querySelectorAll(".dropdown-body").forEach((item) => {
       item.classList.remove("dropdown-body--open");
     });
-    document.querySelectorAll(".dropdown-trigger").forEach((item) => {
+    const triggers: NodeListOf<HTMLElement> =
+      document.querySelectorAll(".dropdown-trigger");
+    triggers.forEach((item) => {
       item.style.color = "black";
     });
     closePopup();
     // Scroll
-    document.querySelector(`.${this.dataset.scroll}`).scrollIntoView({
+    document.querySelector(`.${this.dataset.scroll}`)!.scrollIntoView({
       behavior: "smooth",
     });
   });

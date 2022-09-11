@@ -18,7 +18,7 @@ for (let i = 0; i < res.length; i++) {
   slide.classList.add("swiper-slide");
   slide.setAttribute("data-order", `${d.toLocaleDateString()}`);
   document
-    .querySelector(".orderDateSlider > .swiper-wrapper")
+    .querySelector(".orderDateSlider > .swiper-wrapper")!
     .appendChild(slide);
   slide.innerText = `${d.getDate()}\n${daysOfWeek[d.getDay()]}`;
   slide.addEventListener("click", () => {
@@ -34,16 +34,20 @@ for (let i = 0; i < res.length; i++) {
     month.style.fontSize = "24px";
     month.style.fontWeight = "600";
     month.style.color = "black";
-    month.style.left = 0;
+    month.style.left = "0";
     slide.appendChild(month);
   }
 }
 
-const dataSlider = document.querySelector(".orderDateSlider");
+const dataSlider = document.querySelector(".orderDateSlider")!;
 console.log(dataSlider.getBoundingClientRect());
 
-function closeAll(parentSelector, itemSelector, activeClass) {
+function closeAll(
+  parentSelector: string,
+  itemSelector: string,
+  activeClass: string,
+) {
   const parent = document.querySelector(parentSelector);
-  const items = parent.querySelectorAll(itemSelector);
+  const items = parent!.querySelectorAll(itemSelector);
   items.forEach((item) => item.classList.remove(activeClass));
 }

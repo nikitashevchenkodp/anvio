@@ -1,12 +1,13 @@
 // Tabs
 
 export default function tabs(
-  parentNode,
-  tabControlSelector,
-  tabContentSelector,
-  tabActiveClass,
+  parentNode: HTMLElement,
+  tabControlSelector: string,
+  tabContentSelector: string,
+  tabActiveClass: string,
 ) {
-  const allTabsControll = parentNode.querySelectorAll(tabControlSelector);
+  const allTabsControll: NodeListOf<HTMLElement> =
+    parentNode.querySelectorAll(tabControlSelector);
   const allTabsContent = parentNode.querySelectorAll(tabContentSelector);
 
   function showTab(tabIndex = 0) {
@@ -22,7 +23,7 @@ export default function tabs(
   }
   showTab();
 
-  allTabsControll.forEach((tabControll, i) => {
+  allTabsControll.forEach((tabControll, i: number) => {
     tabControll.addEventListener("click", () => {
       allTabsControll.forEach((tab) => tab.classList.remove(tabActiveClass));
       tabControll.classList.add(tabActiveClass);

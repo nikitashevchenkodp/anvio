@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-const slider = document.querySelector(".orderGameSlider");
+const slider = document.querySelector(".orderGameSlider")!;
 const slides = slider.querySelectorAll(".swiper-slide");
 slides.forEach((slide) => {
   slide.addEventListener("click", () => {
@@ -8,8 +8,12 @@ slides.forEach((slide) => {
   });
 });
 
-function closeAll(parentSelector, itemSelector, activeClass) {
-  const parent = document.querySelector(parentSelector);
+function closeAll(
+  parentSelector: string,
+  itemSelector: string,
+  activeClass: string,
+) {
+  const parent = document.querySelector(parentSelector)!;
   const items = parent.querySelectorAll(itemSelector);
   items.forEach((item) => item.classList.remove(activeClass));
 }
